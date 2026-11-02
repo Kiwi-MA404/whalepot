@@ -8,6 +8,8 @@
 ![deps](https://img.shields.io/badge/依赖-无-2ea44f)
 ![license](https://img.shields.io/badge/license-MIT-c8c8c8)
 
+### ▶ [**点这里直接在线玩**](https://kiwi-ma404.github.io/whalepot/)
+
 > **她看不见世界，只能靠敲锅的回声把它画出来。**
 > 回声不会说谎，但会遗忘。
 
