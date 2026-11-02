@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>倾汤 · 锅盔回声</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div id="app">
+  <canvas id="game" width="1280" height="720"></canvas>
+
+  <!-- HUD -->
+  <div id="hud" class="hidden">
+    <div class="bars">
+      <div class="bar hp"><i id="hpFill"></i><span id="hpText">100 / 100</span></div>
+      <div class="bar st"><i id="stFill"></i></div>
+      <div class="bar echo"><i id="echoFill"></i><span class="echoLabel">回声</span></div>
+    </div>
+    <div id="soulBox"><span class="soulIcon">◍</span><span id="soulText">0</span><span class="soulName">魂</span></div>
+    <div id="bossBar" class="hidden">
+      <div class="bossName" id="bossName">？</div>
+      <div class="bossTrack"><i id="bossFill"></i></div>
+    </div>
+    <div id="zoneName"></div>
+    <div id="tips"></div>
+  </div>
+
+  <!-- 交互提示 -->
+  <div id="prompt" class="hidden"><span class="key">E</span><span id="promptText"></span></div>
+
+  <!-- 对话 -->
+  <div id="dialog" class="hidden">
+    <div class="dBox">
+      <div class="dName" id="dName"></div>
+      <div class="dText" id="dText"></div>
+      <div class="dNext">空格 / E 继续 ▾</div>
+    </div>
+  </div>
+
+  <!-- 标题 -->
+  <div id="titleScreen" class="screen">
+    <div class="titleWrap">
+      <div class="tKicker">一口汤，半部魂</div>
+      <h1>倾汤<span class="dot">·</span>锅盔回声</h1>
+      <p class="tSub">SOUP OF THE POT&nbsp;&nbsp;/&nbsp;&nbsp;ECHO OF THE IRON BOWL</p>
+      <div class="tDesc">
+        她头顶扣着一口锅，看不见世界。<br />
+        所以她学会了敲锅 —— 回声会替她把一切都画出来。<br />
+        <em>回声不会说谎，但会遗忘。</em>
+      </div>
+      <div class="btnRow">
+        <button id="btnStart" class="btn">敲响第一记回声</button>
+        <button id="btnContinue" class="btn ghost hidden">继续 · 上次的灶</button>
+      </div>
+      <div id="saveInfo" class="saveInfo hidden"></div>
+      <div class="keys">
+        <span><b>A D</b> 移动</span><span><b>空格</b> 跳跃</span><span><b>J</b> 轻击</span>
+        <span><b>K</b> 重击</span><span><b>L</b> 敲锅</span><span><b>Shift</b> 翻滚</span>
+        <span><b>E</b> 交互</span><span><b>Q</b> 汤</span><span><b>R</b> 坐火</span>
+      </div>
+      <div class="tNote">手柄支持 · 建议戴耳机 · 回声是本作唯一的"眼睛"</div>
+    </div>
+  </div>
+
+  <!-- 暂停 -->
+  <div id="pauseScreen" class="screen hidden">
+    <div class="titleWrap">
+      <h2>停 锅</h2>
+      <p class="tSub">Esc 继续 · R 从最近的火堆重生</p>
+      <button id="btnResume" class="btn">继续</button>
+    </div>
+  </div>
+
+  <!-- 死亡 -->
+  <div id="deathScreen" class="screen hidden">
+    <div class="deathWrap">
+      <div id="deathWord">锅&nbsp;底&nbsp;回&nbsp;声</div>
+      <div id="deathSub">你的魂落在了原地。回去把它捡回来。</div>
+      <div class="deathPrompt">按 E 重生</div>
+    </div>
+  </div>
+
+  <!-- 火堆坐火 -->
+  <div id="fireScreen" class="screen hidden">
+    <div class="titleWrap">
+      <h2 id="fireTitle">熄灭的灶台</h2>
+      <p class="tSub">火是这里唯一还愿意记得你的东西。</p>
+      <div class="fireBtns">
+        <button class="btn" data-act="rest">坐火 · 恢复 · 重生敌人</button>
+        <button class="btn ghost" data-act="leave">离开</button>
+      </div>
+      <div id="fireStats"></div>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+  <div id="flash"></div>
+</div>
+
+<script src="js/core.js"></script>
+<script src="js/herodata.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/levels.js"></script>
+<script src="js/entities.js"></script>
+<script src="js/render.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
